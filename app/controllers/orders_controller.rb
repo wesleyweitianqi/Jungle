@@ -1,3 +1,5 @@
+require "stripe"
+
 class OrdersController < ApplicationController
 
   def show
