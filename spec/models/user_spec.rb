@@ -1,4 +1,5 @@
 require 'rails_helper'
+require_relative "../../app/models/user"
 
 RSpec.describe User, type: :model do
   describe "shoudl be created with a password and password_confirmation " do
@@ -113,5 +114,60 @@ RSpec.describe User, type: :model do
     end 
   end 
 
+  describe ".authenticate_with_credentials" do 
+    it "should be fail if password is wroing" do 
+      user = User.new(
+        first_name: "wesley",
+        last_name: "wei",
+        email: "test@test.ca",
+        password: "testtest",
+        password_confirmation: "testtest"
+      )
+      user.save
+      user=User.authenticate_with_credentials("test@test.ca", "testtesy")
+      expect(user).to eql(nil)
+    end 
+
+    it "should pass if password is correct" do 
+      user = User.new(
+        first_name: "wesley",
+        last_name: "wei",
+        email: "test444@test.ca",
+        password: "testtest",
+        password_confirmation: "testtest"
+      )
+      user.save
+      user=User.authenticate_with_credentials("test444@test.ca", "testtest")
+      expect(user.valid?).to_not eql(nil)
+    end 
+
+    it 'should pass if email is captalized' do 
+      user = User.new(
+        first_name: "wesley",
+        last_name: "wei",
+        email: "test444@test.ca",
+        password: "testtest",
+        password_confirmation: "testtest"
+      )
+      user.save
+      user=User.authenticate_with_credentials("TEST444@test.ca", "testtest")
+      expect(user).to_not eql(nil)
+    end
+    
+    it "should pass with spaces in email" do
+      user = User.new(
+        first_name: "wesley",
+        last_name: "wei",
+        email: "test444@test.ca",
+        password: "testtest",
+        password_confirmation: "testtest"
+      )
+      user.save
+      user=User.authenticate_with_credentials("   TEST444@test.ca  ", "testtest")
+      expect(user).to_not eql(nil)
+    end
+    
+
+  end 
 
 end
