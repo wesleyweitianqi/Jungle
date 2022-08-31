@@ -2,15 +2,17 @@
 
 <%= form_for [:user, @user], url: '/users' do |f| %>
   <% if f.object.errors.any? %>
+  <div class="alert alert-danger">
     <% f.object.errors.full_messages.each do |e| %>
-      <%= e %>
+      <li><%= e %></li>
     <% end %>
+  </div>
   <% end %>
-  First Name: <%= f.text_field :first_name, require: true %>
-  Last Name: <%= f.text_field :last_name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+  <div>First Name: <div><%= f.text_field :first_name, require: true %></div></div>
+  <div>Last Name: <div><%= f.text_field :last_name %></div></div>
+  <div>Email: <div><%= f.text_field :email %></div></div>
+  <div>Password: <div><%= f.password_field :password %></div></div>
+  <div>Password Confirmation: <div><%= f.password_field :password_confirmation %></div></div>
+  <div><%= f.submit "Submit" %></div>
 
 <% end %>
