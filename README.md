@@ -3,11 +3,11 @@
 A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
 
 ## Final Product
-!["product-page"]()
-!["product-edit"]()
-!["product-payment"]()
-!["product-cart"]()
-!["login/signup"]()
+!["product-page"](https://github.com/wesleyweitianqi/Jungle/blob/master/doc/product-pages.png?raw=true)
+!["product-edit"](https://github.com/wesleyweitianqi/Jungle/blob/master/doc/product-edit.png?raw=true)
+!["product-payment"](https://github.com/wesleyweitianqi/Jungle/blob/master/doc/payment.png?raw=true)
+!["product-cart"](https://github.com/wesleyweitianqi/Jungle/blob/master/doc/My%20cart.png?raw=true)
+!["login/signup"](https://github.com/wesleyweitianqi/Jungle/blob/master/doc/login.png?raw=true)
 
 ## Setup
 
